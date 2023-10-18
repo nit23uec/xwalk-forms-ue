@@ -529,9 +529,9 @@ function topFormExpressBox() {
 
 function generateItemId(id) {
   if (id) {
-    return `urn:aemconnection:${window.formPath}:default:Id:${id}`;
+    return `urn:aemconnection:${id}`;
   } else {
-    return `urn:aemconnection:${window.formPath}:default`;
+    return `urn:aemconnection`;
   }
 }
 
