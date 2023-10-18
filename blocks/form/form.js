@@ -536,8 +536,8 @@ function generateItemId(id) {
 }
 
 function loadUEScripts() {
-  /*
   let head = document.getElementsByTagName('head')[0];
+  /*
   var meta = document.createElement('meta');
   meta.name = "urn:auecon:fnkconnection";
   meta.content = `fnk:${window.origin}`;
