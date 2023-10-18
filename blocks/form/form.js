@@ -536,11 +536,12 @@ function generateItemId(id) {
 }
 
 function loadUEScripts() {
+  /*
   let head = document.getElementsByTagName('head')[0];
   var meta = document.createElement('meta');
   meta.name = "urn:auecon:fnkconnection";
   meta.content = `fnk:${window.origin}`;
-  head.appendChild(meta);
+  head.appendChild(meta);*/
   let ueEmbedded = document.createElement("script");
   //ueEmbedded.src = "https://cdn.jsdelivr.net/gh/adobe/universal-editor-cors/dist/universal-editor-embedded.js";
   ueEmbedded.src = `${window.origin}/blocks/form/universal-editor-embedded.js`;
