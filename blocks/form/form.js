@@ -423,6 +423,7 @@ function updateErrorTextElement(div, fd) {
 async function fetchData(url) {
   const resp = await fetch(url);
   const json = await resp.json();
+  window.formId = json.Id;
   return json.data.map((fd) => ({
     ...fd,
     Id: fd.Id || getId(fd.Name),
@@ -442,7 +443,7 @@ async function createForm(formURL) {
   const data = await fetchForm(pathname);
   const form = document.createElement("form");
   form.noValidate = true;
-  form.setAttribute('itemid', generateItemId(data.Id));
+  form.setAttribute('itemid', generateItemId(window.formId));
   form.setAttribute('itemtype', 'container');
   form.setAttribute('itemscope', '');
   form.setAttribute('data-editor-itemlabel', "Form Container");
