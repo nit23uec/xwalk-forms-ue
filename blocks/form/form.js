@@ -442,6 +442,11 @@ async function createForm(formURL) {
   const data = await fetchForm(pathname);
   const form = document.createElement("form");
   form.noValidate = true;
+  form.setAttribute('itemid', generateItemId(data.Id));
+  form.setAttribute('itemtype', 'container');
+  form.setAttribute('itemscope', '');
+  form.setAttribute('data-editor-itemlabel', "Form Container");
+  form.setAttribute('data-editor-itemmodel', "form");
   data.forEach((fd) => {
     const el = renderField(fd);
     const input = el.querySelector("input,textarea,select");
@@ -539,13 +544,6 @@ export default async function decorate(block) {
   const formLink = block.querySelector('a[href$=".json"]');
   if (formLink) {
     const form = await createForm(formLink.href);
-    /*
-    form.setAttribute('itemid', generateItemId());
-    form.setAttribute('itemtype', 'container');
-    form.setAttribute('itemscope', '');
-    */
-    form.setAttribute('data-editor-itemlabel', "Form Container");
-    form.setAttribute('data-editor-itemmodel', "form");
     formLink.replaceWith(form);
   }
 }
