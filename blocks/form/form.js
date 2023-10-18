@@ -529,42 +529,15 @@ function topFormExpressBox() {
 
 function generateItemId(id) {
   if (id) {
-    return `urn:fnkconnection:${window.formPath}:default:Id:${id}`;
+    return `urn:aemconnection:${window.formPath}:default:Id:${id}`;
   } else {
-    return `urn:fnkconnection:${window.formPath}:default`;
+    return `urn:aemconnection:${window.formPath}:default`;
   }
-}
-
-function loadUEScripts() {
-  let head = document.getElementsByTagName('head')[0];
-  /*
-  var meta = document.createElement('meta');
-  meta.name = "urn:auecon:fnkconnection";
-  meta.content = `fnk:${window.origin}`;
-  head.appendChild(meta);*/
-  let ueEmbedded = document.createElement("script");
-  //ueEmbedded.src = "https://cdn.jsdelivr.net/gh/adobe/universal-editor-cors/dist/universal-editor-embedded.js";
-  ueEmbedded.src = `${window.origin}/blocks/form/universal-editor-embedded.js`;
-  ueEmbedded.async = true;
-  head.appendChild(ueEmbedded);
-  let componentDefinition = document.createElement("script");
-  componentDefinition.type =  "application/vnd.adobe.aem.editor.component-definition+json";
-  componentDefinition.src = `${window.origin}/blocks/form/component-definition.json`;
-  head.appendChild(componentDefinition);
-  document.addEventListener("editor-add", function (e){
-   const container = e.detail.container;
-   container.appendChild(renderField(e.detail.content));
-  }, false);
-  document.addEventListener("editor-update", function (e){
-    console.log(e.detail);
-    updateField(e.detail.element, e.detail.content);
-  }, false);
 }
 
 export default async function decorate(block) {
   const formLink = block.querySelector('a[href$=".json"]');
   if (formLink) {
-    loadUEScripts();
     const form = await createForm(formLink.href);
     form.setAttribute('itemid', generateItemId());
     form.setAttribute('itemtype', 'container');
