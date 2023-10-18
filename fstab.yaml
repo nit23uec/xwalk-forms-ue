@@ -1,5 +1,5 @@
 mountpoints:
   /: 
-    url: https://guided-dog-concrete.ngrok-free.app/content/franklin-examples/index
+    url: https://guided-dog-concrete.ngrok-free.app/content/franklin-examples/
     type: markup
     suffix: ".franklin.html?wcmmode=disabled"
