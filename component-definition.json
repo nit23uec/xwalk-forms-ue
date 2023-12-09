@@ -179,6 +179,18 @@
               }
             }
           }
+        },
+        {
+          "title": "Form",
+          "id": "form",
+          "plugins": {
+            "aem": {
+              "page": {
+                "resourceType": "core/franklin/components/form/v1/form",
+                "template": {}
+              }
+            }
+          }
         }
       ]
     }
