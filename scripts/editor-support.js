@@ -1,6 +1,6 @@
 import {
   decorateBlock, decorateButtons, decorateIcons, loadBlock,
-} from './lib-franklin.js';
+} from './aem.js';
 
 function handleEditorUpdate(event) {
   const { detail: { itemids } } = event;
